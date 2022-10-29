@@ -10,20 +10,20 @@ export default function BemVindo({ navigation }) {
       <Image style={styles.img} source={require('./img/aperto-de-mao.jpg')} />
       <TouchableHighlight
         underlayColor="#f7b142"
+        onPress={() => navigation.navigate('BomPrato')}
+        style={styles.botão}>
+        <View style={styles.botãoContainer}>
+          <Image style={styles.botãoImagem} source={require('./img/icone-faca-garfo-branco.png')} />
+          <Text style={styles.botãoTexto}>Bom Prato</Text>
+        </View>
+      </TouchableHighlight>
+      <TouchableHighlight
+        underlayColor="#f7b142"
         onPress={() => navigation.navigate('Albergues')}
         style={styles.botão}>
         <View style={styles.botãoContainer}>
           <Image style={styles.botãoImagem} source={require('./img/albergue-icone-branco.png')} />
           <Text style={styles.botãoTexto}>Albergues</Text>
-        </View>
-      </TouchableHighlight>
-      <TouchableHighlight
-        underlayColor="#f7b142"
-        onPress={() => navigation.navigate('Restaurantes')}
-        style={styles.botão}>
-        <View style={styles.botãoContainer}>
-          <Image style={styles.botãoImagem} source={require('./img/icone-faca-garfo-branco.png')} />
-          <Text style={styles.botãoTexto}>Restaurantes</Text>
         </View>
       </TouchableHighlight>
       <TouchableHighlight
