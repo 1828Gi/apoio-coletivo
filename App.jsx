@@ -1,28 +1,43 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import BemVindo from './src/telas/BemVindo';
-import Albergues from './src/telas/Albergues';
-import BomPrato from './src/telas/BomPrato';
-import Saude from './src/telas/Saude';
+import { RootSiblingParent } from 'react-native-root-siblings';
+import { Albergues, BemVindo, BomPrato, Saúde, OutrosServiços } from './src/telas';
+import { cor } from './src/tema';
+import { CardsBase } from './src/componentes';
 
 const Stack = createNativeStackNavigator();
 
+const opçõesDaTela = {
+  geral: {
+    title: '',
+    headerShadowVisible: false,
+    headerStyle: {
+      backgroundColor: cor.planoDeFundo,
+    },
+    headerTintColor: cor.secundária,
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  },
+  bemVindo: {
+    headerShown: false,
+  },
+};
+
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="BemVindo">
-        <Stack.Screen
-          name="BemVindo"
-          component={BemVindo}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen name="Albergues" component={Albergues} />
-        <Stack.Screen name="BomPrato" component={BomPrato} />
-        <Stack.Screen name="Saude" component={Saude} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <RootSiblingParent>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="BemVindo" screenOptions={opçõesDaTela.geral}>
+          <Stack.Screen name="BemVindo" component={BemVindo} options={opçõesDaTela.bemVindo} />
+          <Stack.Screen name="Albergues" component={Albergues} />
+          <Stack.Screen name="BomPrato" component={BomPrato} />
+          <Stack.Screen name="Saúde" component={Saúde} />
+          <Stack.Screen name="OutrosServiços" component={OutrosServiços} />
+          <Stack.Screen name="CardsBase" component={CardsBase} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </RootSiblingParent>
   );
 }

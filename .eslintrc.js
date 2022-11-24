@@ -1,3 +1,9 @@
 module.exports = {
-  extends: 'expo',
+  extends: ['expo', 'plugin:react/recommended'],
+  env: {
+    'node': true,
+  },
+  rules: {
+    'react/prop-types': ['error', { 'ignore': ['navigation'] }],
+  },
 };

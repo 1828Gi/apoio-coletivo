@@ -1,19 +1,20 @@
 import { StyleSheet } from 'react-native';
+import { cor } from '../../../src/tema';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: cor.planoDeFundo,
   },
   título: {
     alignSelf: 'center',
     fontSize: 48,
-    color: '#0397a5',
+    color: cor.primária,
     fontWeight: 'bold',
     marginTop: 48,
   },
   botão: {
-    backgroundColor: '#0397a5',
+    backgroundColor: cor.primária,
     paddingVertical: 16,
     paddingHorizontal: 32,
     borderRadius: 24,
@@ -33,15 +34,14 @@ export const styles = StyleSheet.create({
     marginLeft: -8,
   },
   botãoTexto: {
-    color: '#fff',
+    color: cor.branco,
     fontSize: 24,
     fontWeight: 'bold',
   },
-  img: {
-    resizeMode: 'center',
+  logoImagem: {
+    resizeMode: 'contain',
     alignSelf: 'center',
-    width: 280,
-    height: 280,
+    height: 240,
     marginTop: 32,
   },
 });
